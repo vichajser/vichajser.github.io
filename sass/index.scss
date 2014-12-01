@@ -12,7 +12,7 @@ body{
 		font-size: 2.0625rem;
 		color: #fff;
 		text-align:center;
-		margin-top: 60px;
+		margin-top: 15%;
 		span{
 			-webkit-animation: start 1.5s 2;
 			animation: start 1.5s 2;
@@ -24,7 +24,7 @@ body{
 	.introduce{
 		padding: 0 5%;
 		position:relative;
-		margin-top: 82px;
+		margin-top: 15%;
 		div , ul {
 			color:#fff;
 		}
@@ -40,7 +40,7 @@ body{
 	.begin{
 		position: relative;
 		width: 100%;
-		margin-top:74px;
+		margin-top:20%;
 		text-align:center;
 		.btn{
 			background-color:#D02D2D;
@@ -87,7 +87,7 @@ body{
 	background-color: #fff;
 	@include border-radius(5px);
 	position: relative;
-	margin-top:100px;
+	margin-top:38%;
 	.math-container{
 		font-size: 3rem;
 		line-height: 100px;
@@ -98,12 +98,13 @@ body{
 	margin:0 auto;
 	width:65%;
 	position:relative;
-	margin-top:40px;
+	margin-top:17%;
 	input{
 		margin:0 auto;
 		width: 100%;
-		height:25px;
+		height:31px;
 		text-align: center;
+		font-size: 1.125rem;
 	}
 }
 .share{
