@@ -1,0 +1,235 @@
+/* line 4, ../sass/index.scss */
+body {
+  width: 100%;
+  background: url("../img/dark_wood.png") repeat;
+}
+
+/* line 9, ../sass/index.scss */
+#explain-game {
+  position: relative;
+}
+/* line 11, ../sass/index.scss */
+#explain-game .title {
+  font-size: 2.0625rem;
+  color: #fff;
+  text-align: center;
+  margin-top: 60px;
+}
+/* line 16, ../sass/index.scss */
+#explain-game .title span {
+  -webkit-animation: start 1.5s 2;
+  animation: start 1.5s 2;
+  color: #DB336C;
+  font-size: 2.5rem;
+  display: inline-block;
+}
+/* line 24, ../sass/index.scss */
+#explain-game .introduce {
+  padding: 0 5%;
+  position: relative;
+  margin-top: 82px;
+}
+/* line 28, ../sass/index.scss */
+#explain-game .introduce div, #explain-game .introduce ul {
+  color: #fff;
+}
+/* line 31, ../sass/index.scss */
+#explain-game .introduce .rule {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+/* line 35, ../sass/index.scss */
+#explain-game .introduce ul li {
+  margin-top: 5px;
+  line-height: 21px;
+}
+/* line 40, ../sass/index.scss */
+#explain-game .begin {
+  position: relative;
+  width: 100%;
+  margin-top: 74px;
+  text-align: center;
+}
+/* line 45, ../sass/index.scss */
+#explain-game .begin .btn {
+  background-color: #D02D2D;
+  border-color: transparent;
+  padding: 6px 12px;
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: center;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  color: #fff;
+  margin: 0 auto;
+  width: 46%;
+  height: 43px;
+}
+
+@-webkit-keyframes start {
+  /* line 62, ../sass/index.scss */
+  0% {
+    -webkit-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+  }
+
+  /* line 63, ../sass/index.scss */
+  25% {
+    -webkit-transform: rotateX(90deg);
+    transform: rotateX(90deg);
+  }
+
+  /* line 64, ../sass/index.scss */
+  50% {
+    -webkit-transform: rotateX(180deg);
+    transform: rotateX(180deg);
+  }
+
+  /* line 65, ../sass/index.scss */
+  75% {
+    -webkit-transform: rotateX(270deg);
+    transform: rotateX(270deg);
+  }
+
+  /* line 66, ../sass/index.scss */
+  100% {
+    -webkit-transform: rotateX(360deg);
+    transform: rotateX(360deg);
+  }
+}
+
+/* line 69, ../sass/index.scss */
+#main-game {
+  margin: 5px;
+}
+
+/* line 72, ../sass/index.scss */
+.time-zone {
+  position: relative;
+}
+/* line 74, ../sass/index.scss */
+.time-zone .time {
+  font-size: 3rem;
+  color: #fff;
+}
+/* line 78, ../sass/index.scss */
+.time-zone .time-fix {
+  color: #eee;
+  font-size: 1.5rem;
+}
+
+/* line 83, ../sass/index.scss */
+.math {
+  margin: 0 auto;
+  width: 70%;
+  height: 100px;
+  background-color: #fff;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  position: relative;
+  margin-top: 100px;
+}
+/* line 91, ../sass/index.scss */
+.math .math-container {
+  font-size: 3rem;
+  line-height: 100px;
+  text-align: center;
+}
+
+/* line 97, ../sass/index.scss */
+.answer {
+  margin: 0 auto;
+  width: 65%;
+  position: relative;
+  margin-top: 40px;
+}
+/* line 102, ../sass/index.scss */
+.answer input {
+  margin: 0 auto;
+  width: 100%;
+  height: 25px;
+  text-align: center;
+}
+
+/* line 109, ../sass/index.scss */
+.share {
+  position: relative;
+}
+/* line 111, ../sass/index.scss */
+.share img {
+  width: 100%;
+}
+
+/* line 115, ../sass/index.scss */
+#result {
+  margin: 0 3%;
+}
+
+/* line 118, ../sass/index.scss */
+.score {
+  position: relative;
+  margin: 0 auto;
+  margin-top: 61px;
+  width: 80%;
+  height: 128px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+}
+/* line 126, ../sass/index.scss */
+.score .fen {
+  font-size: 30px;
+  text-align: center;
+  color: #fff;
+}
+/* line 130, ../sass/index.scss */
+.score .fen span {
+  font-size: 33px;
+  color: #F22645;
+}
+/* line 135, ../sass/index.scss */
+.score .defeat {
+  margin-top: 40px;
+  font-size: 1.8125rem;
+  text-align: center;
+  color: #fff;
+}
+/* line 140, ../sass/index.scss */
+.score .defeat span {
+  color: #F22645;
+  font-size: 2.0625rem;
+}
+
+/* line 147, ../sass/index.scss */
+.replay {
+  position: relative;
+  width: 100%;
+  margin-top: 74px;
+  text-align: center;
+}
+/* line 152, ../sass/index.scss */
+.replay .btn {
+  background-color: #D02D2D;
+  border-color: transparent;
+  padding: 6px 12px;
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: center;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  color: #fff;
+  margin: 0 auto;
+  width: 46%;
+  height: 43px;
+}
