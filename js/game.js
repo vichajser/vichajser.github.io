@@ -21,18 +21,18 @@ var _lang = {
     //游戏配置
     _config = {
         lang: 'zh',
-        initTime: 15,
+        initTime: 6,
         addTime: 1,
-        addScore: 20,
-        sumMax: 500,
-        multiMax: 20,
-        level: [10, 20, 30, 40, 50, 60, 70, 80, 90, 99]
+        addScore: 5,
+        sumMax: [1, 10, 20, 30, 50, 100, 500, 1000],
+        multiMax: [1, 5 ,10, 15, 20, 25, 100],
+        level: [5, 10, 20, 30, 50, 60, 70, 80, 90, 99]
     },
 
     //游戏数据
     shareData = {
         imgUrl: "",
-        timeLineLink: "",
+        timeLineLink: "http://vichajser.github.io",
         tTitle: _lang[_config.lang].title,
         tContent: _lang[_config.lang].desc
     },
@@ -41,11 +41,12 @@ var _lang = {
         //
     };
 
-    mathFactory.prototype.init = function(){
+    mathFactory.prototype.init = function(timer){
         var _this = this,
+            timer = timer,
             num = parseInt(Math.random()*2) || 0;
 
-        return _this.factory(num);
+        return _this.factory(num, timer);
     };
 
     mathFactory.prototype.randomNum = function(minNum,maxNum){
@@ -92,22 +93,82 @@ var _lang = {
         return result;
     };
 
-    mathFactory.prototype.factory = function(num){
+    mathFactory.prototype.factory = function(num, timer){
         var _this = this,
             result = {},
             a,b;
 
         switch(num){
             case 0 :
-                    a = _this.randomNum(1, _config.multiMax),
-                    b = _this.randomNum(1, _config.multiMax);
+                    if(timer == 0){
+                        //1--5
+                        a = _this.randomNum(_config.multiMax[0], _config.multiMax[1]);
+                        b = _this.randomNum(_config.multiMax[0], _config.multiMax[1]);
+                    }else if(timer > 0 && timer < 5){
+                        //5--10
+                        a = _this.randomNum(_config.multiMax[1], _config.multiMax[2]);
+                        b = _this.randomNum(_config.multiMax[1], _config.multiMax[2]);
+                    }else if(timer >= 5  && timer < 15){
+                        //5--15
+                        a = _this.randomNum(_config.multiMax[1], _config.multiMax[3]);
+                        b = _this.randomNum(_config.multiMax[1], _config.multiMax[3]);
+                    }else if(timer >= 16 && timer < 20){
+                        //5--20
+                        a = _this.randomNum(_config.multiMax[1], _config.multiMax[4]);
+                        b = _this.randomNum(_config.multiMax[1], _config.multiMax[4]);
+                    }else if(timer >= 20 && timer < 25){
+                        //10--20
+                        a = _this.randomNum(_config.multiMax[2], _config.multiMax[4]);
+                        b = _this.randomNum(_config.multiMax[2], _config.multiMax[4]);
+                    }else if(timer >= 25 && timer < 30){
+                        //10--25
+                        a = _this.randomNum(_config.multiMax[2], _config.multiMax[5]);
+                        b = _this.randomNum(_config.multiMax[2], _config.multiMax[5]);
+                    }else if(timer >= 30 && timer < 35){
+                        //15--25
+                        a = _this.randomNum(_config.multiMax[3], _config.multiMax[5]);
+                        b = _this.randomNum(_config.multiMax[3], _config.multiMax[5]);
+                    }else if(timer >= 35 && timer < 40){
+                        //15--25
+                        a = _this.randomNum(_config.multiMax[4], _config.multiMax[5]);
+                        b = _this.randomNum(_config.multiMax[4], _config.multiMax[5]);
+                    }else{
+                        a = _this.randomNum(_config.multiMax[5], _config.multiMax[6]);
+                        b = _this.randomNum(_config.multiMax[5], _config.multiMax[6]);
+                    }
 
                     result = _this.operator(num, a, b);
                     break;
             case 1 :
-                    a = _this.randomNum(100, _config.sumMax),
-                    b = _this.randomNum(100, _config.sumMax);
-
+                    if(timer == 0){
+                        //1--10
+                        a = _this.randomNum(_config.sumMax[0], _config.sumMax[1]);
+                        b = _this.randomNum(_config.sumMax[0], _config.sumMax[1]);
+                    }else if(timer > 0 && timer < 5){
+                        //10--20
+                        a = _this.randomNum(_config.sumMax[1], _config.sumMax[2]);
+                        b = _this.randomNum(_config.sumMax[1], _config.sumMax[2]);
+                    }else if(timer >= 5  && timer < 10){
+                        //20-30
+                        a = _this.randomNum(_config.sumMax[2], _config.sumMax[3]);
+                        b = _this.randomNum(_config.sumMax[2], _config.sumMax[3]);
+                    }else if(timer >= 10 && timer < 15){
+                        //30-50
+                        a = _this.randomNum(_config.sumMax[3], _config.sumMax[4]);
+                        b = _this.randomNum(_config.sumMax[3], _config.sumMax[4]);
+                    }else if(timer >= 15 && timer < 20){
+                        //50-100
+                        a = _this.randomNum(_config.sumMax[4], _config.sumMax[5]);
+                        b = _this.randomNum(_config.sumMax[4], _config.sumMax[5]);
+                    }else if(timer >= 20 && timer < 25){
+                        //100-500
+                        a = _this.randomNum(_config.sumMax[5], _config.sumMax[6]);
+                        b = _this.randomNum(_config.sumMax[5], _config.sumMax[6]);
+                    }else {
+                        a = _this.randomNum(_config.sumMax[6], _config.sumMax[7]);
+                        b = _this.randomNum(_config.sumMax[6], _config.sumMax[7]);
+                    }
+                    
                     result = _this.operator(num, a, b);
                     break;
             default: break;
@@ -129,6 +190,7 @@ var _lang = {
     //绑定界面元素
     var dom = {
         input_val: $("#answer"),
+        keyboard: $("#keyboard"),
         re_start: $("#re_start"),
         time: $("#time"),
         math_container: $("#math-container"),
@@ -177,8 +239,8 @@ var _lang = {
                     _this.randerUI();
                 });
 
-                dom.input_val.bind('input propertychange',function(){
-                    var value = parseInt(dom.input_val.val());
+                dom.keyboard.on(eventName,'div', function(){
+                    var value = parseInt(dom.input_val.text());
             
                     if(game.right_answer == value){
                         dom.input_val.css('border','1px solid blue');
@@ -190,7 +252,7 @@ var _lang = {
                     }
                 });
 
-                dom.re_start.bind(eventName,function(){
+                dom.re_start.on(eventName,function(){
                     _this.right_answer = 0;
                     _this.lastScore = 0;
                     _this.timer = 0;
@@ -211,7 +273,7 @@ var _lang = {
                 var _this = this,
                     result = {};
                 // dom.dialog.hide();
-                result = mathfactory.init();
+                result = mathfactory.init(_this.timer);
 
                 _this.randerNum(result);
                 game.right_answer = result.rightAnswer;
@@ -232,13 +294,18 @@ var _lang = {
                 }else{
                     dom.time.text(parseInt(_this.time));
                 }
+
+                if(_this.time < 5 && _this.time > 0){
+                    dom.time.css('color','red');
+                }
             },
 
             reset: function(){
                 var _this = this;
                 
                 _this.time = _config["initTime"];
-                dom.time.text(parseInt(_this.time))
+                dom.time.css('color','#fff').text(parseInt(_this.time));
+
             },
             nextLv: function(){
                 this.time += this.config.addTime;
@@ -250,7 +317,7 @@ var _lang = {
                     dom.time.text(parseInt(this.time));
                 }
                 
-                dom.input_val.val("");
+                dom.input_val.text("");
 
                 this.start();
             },
@@ -282,8 +349,10 @@ var _lang = {
                     level.text(_config.level[3]);
                 }else if(num <= 10 && num > 5){
                     level.text(_config.level[2]);
-                }else{
+                }else if(num <= 5 && num >= 0){
                     level.text(_config.level[1]);
+                }else{
+                    level.text(_config.level[0]);
                 }
 
                 _this.lastGamePercent = level.text();
