@@ -2,7 +2,7 @@
 <html lang="en"> 
 <head>
 	<meta charset="UTF-8">
-	<title>mathGame</title>
+	<title>math game</title>
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
 	<script src="lib/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/global.css">
@@ -64,7 +64,7 @@
 		</div>
 		<div class="score">
 			<div class="fen">
-				score:&nbsp&nbsp<span id="score">61</span>
+				score:&nbsp&nbsp<span id="score"></span>
 			</div>
 			<div class="defeat">
 				你击败了全国<span id="level"></span>%的人~
@@ -78,46 +78,45 @@
 
 	<script src="js/game.js"></script>
     <script src="js/index.js"></script>
-    <script src="js/frank.js"></script>
     <script type="text/javascript">
-	(function(){
+	// (function(){
 
-		var input = $(".input"),
-		    keyboard = $("#keyboard"),
-		    reminder = $('.reminder');
+	// 	var input = $(".input"),
+	// 	    keyboard = $("#keyboard"),
+	// 	    reminder = $('.reminder');
 
-		keyboard.on('click','div',function(){
+	// 	keyboard.on('click','div',function(){
 
-			var num = $(this).attr('data-num'),
-			    temp = input.text();
+	// 		var num = $(this).attr('data-num'),
+	// 		    temp = input.text();
 
-			if(reminder.css("display") == "block"){
-				reminder.css("display","none");
-			}
+	// 		if(reminder.css("display") == "block"){
+	// 			reminder.css("display","none");
+	// 		}
 
-			switch (num){
-				case "Back" :
-				    var len = temp.length - 1
-					temp = temp.slice(0,len);
-					input.text(temp);
-					break;
-				case "-":
-				case "1":
-				case "2":
-				case "3":
-				case "4":
-				case "5":
-				case "6":
-				case "7":
-				case "8":
-				case "9":
-				case "0":
-					temp+=num;
-					input.text(temp);
-					break;
-			}
-		})
-	})();
+	// 		switch (num){
+	// 			case "Back" :
+	// 			    var len = temp.length - 1
+	// 				temp = temp.slice(0,len);
+	// 				input.text(temp);
+	// 				break;
+	// 			case "-":
+	// 			case "1":
+	// 			case "2":
+	// 			case "3":
+	// 			case "4":
+	// 			case "5":
+	// 			case "6":
+	// 			case "7":
+	// 			case "8":
+	// 			case "9":
+	// 			case "0":
+	// 				temp+=num;
+	// 				input.text(temp);
+	// 				break;
+	// 		}
+	// 	})
+	// })();
 	</script>
 
 <script type="text/javascript">
