@@ -3,7 +3,7 @@
 //游戏资源
 var _lang = {
         zh: {
-            title: "看谁算的快",
+            title: "你算老几",
             help_txt: "规则: 初始15秒,答对一题相应添加一秒作答时间,看你能做多少,鉴别你小学数学老师的真实身份的时候到了",
             score: "得分:",
             btn_pause: "暂停",
@@ -13,7 +13,7 @@ var _lang = {
             loading: "加载中...",
             share_txt1: "我怒砍",
             share_txt2: "分，击败了",
-            share_txt3: "%的人,经鉴定我的小学数学是体育老师教的",
+            share_txt3: "%的人",
             share_text4: ",不服来战！",
             desc: "看你能算多少。分享朋友圈,选择你身边那些被体育老师教过的数学的汉子"
         }
@@ -21,7 +21,7 @@ var _lang = {
     //游戏配置
     _config = {
         lang: 'zh',
-        initTime: 6,
+        initTime: 15,
         addTime: 1,
         addScore: 5,
         sumMax: [1, 10, 20, 30, 50, 100, 500, 1000],
@@ -287,9 +287,9 @@ var _lang = {
                 var _this = game;
                 _this.time --;
             
-                if(_this.time < 10 && _this.time >= 0){
+                if(_this.time < 10 && _this.time > 0){
                     dom.time.text("0" + parseInt(_this.time));
-                }else if(_this.time < 0){
+                }else if(_this.time == 0){
                     _this.gameOver();
                 }else{
                     dom.time.text(parseInt(_this.time));
@@ -305,6 +305,8 @@ var _lang = {
                 
                 _this.time = _config["initTime"];
                 dom.time.css('color','#fff').text(parseInt(_this.time));
+
+                $('title').text('math game')
 
             },
             nextLv: function(){
@@ -324,14 +326,14 @@ var _lang = {
             gameOver: function(){
                 var _this = this,
                     num = _this.lastScore/20,
-                    level = dom.level;
+                    level = dom.level,
+                    content = _lang[_config.lang];
 
                 _this.el.hide();
                 dom.result.show();
                 clearInterval(_this._tick);
 
                 dom.score.text(_this.lastScore);
-
 
                 if(num > 40){
                     level.text(_config.level[9]);
@@ -356,6 +358,9 @@ var _lang = {
                 }
 
                 _this.lastGamePercent = level.text();
+
+                $('title').text(content.title + content.share_txt1 + _this.lastScore + content.share_txt2 + _this.lastGamePercent + content.share_txt3 + content.share_text4);
+
             }
         };
     window.Game = game;
