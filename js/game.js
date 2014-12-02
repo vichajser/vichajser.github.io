@@ -197,7 +197,7 @@ var _lang = {
         result: $("#result"),
         score: $("#score"),
         level: $("#level"),
-        input = $(".input"),
+        input: $(".input"),
         reminder : $('.reminder')
     },
         mathfactory = new mathFactory(),
