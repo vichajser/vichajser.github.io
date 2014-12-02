@@ -197,6 +197,7 @@ var _lang = {
         result: $("#result"),
         score: $("#score"),
         level: $("#level"),
+        input = $(".input"),
         reminder : $('.reminder')
     },
         mathfactory = new mathFactory(),
@@ -243,8 +244,8 @@ var _lang = {
                 dom.keyboard.on(eventName,'div', function(){
                     var value = parseInt(dom.input_val.text()),
                         num = $(this).attr('data-num'),
-                        temp = input.text();
-                        
+                        temp = dom.input.text();
+
                     if(dom.reminder.css("display") == "block"){
                         dom.reminder.css("display","none");
                     }
@@ -253,7 +254,7 @@ var _lang = {
                         case "Back" :
                             var len = temp.length - 1
                             temp = temp.slice(0,len);
-                            input.text(temp);
+                            dom.input.text(temp);
                             break;
                         case "-":
                         case "1":
@@ -267,7 +268,7 @@ var _lang = {
                         case "9":
                         case "0":
                             temp+=num;
-                            input.text(temp);
+                            dom.input.text(temp);
                             break;
                     }
 
