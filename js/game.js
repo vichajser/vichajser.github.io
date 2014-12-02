@@ -245,11 +245,11 @@ var _lang = {
                     var value = parseInt(dom.input_val.text()),
                         that = this;
 
-                    $(that).css('background', 'rgba(255,255,255,0.1)');
+                    // $(that).css('background', 'rgba(255,255,255,0.1)');
 
-                    setTimeout(function(){
-                        $(that).css('background', 'transparent');
-                    },100);
+                    // setTimeout(function(){
+                    //     $(that).css('background', 'transparent');
+                    // },100);
 
                     if(game.right_answer == value){
                         dom.input_val.css('border','1px solid #fff');
