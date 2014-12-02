@@ -243,7 +243,7 @@ var _lang = {
                     var value = parseInt(dom.input_val.text());
             
                     if(game.right_answer == value){
-                        dom.input_val.css('border','1px solid blue');
+                        dom.input_val.css('border','1px solid #fff');
             
                         _this.timer ++ ;
                         game.nextLv();
