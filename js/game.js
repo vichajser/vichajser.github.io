@@ -341,7 +341,7 @@ var _lang = {
                 _this.time = _config["initTime"];
                 dom.time.css('color','#fff').text(parseInt(_this.time));
                 dom.input_val.css('border','1px solid #fff');
-                
+
                 $('title').text('math game');
                 dom.input_val.text("");
 
@@ -395,7 +395,7 @@ var _lang = {
 
                 _this.lastGamePercent = level.text();
 
-                $('title').text(content.title + content.share_txt1 + _this.lastScore + content.share_txt2 + _this.lastGamePercent + content.share_txt3 + content.share_text4);
+                $('title').text(content.title + " , " ,content.share_txt1 + _this.lastScore + content.share_txt2 + _this.lastGamePercent + content.share_txt3 + content.share_text4);
 
             }
         };
