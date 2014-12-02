@@ -368,7 +368,7 @@ var _lang = {
             },
             gameOver: function(){
                 var _this = this,
-                    num = _this.lastScore/20,
+                    num = _this.lastScore/5,
                     level = dom.level,
                     content = _lang[_config.lang];
 
