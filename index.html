@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"> 
 <head>
 	<meta charset="UTF-8">
 	<title>mathGame</title>
@@ -15,14 +15,14 @@
 </head>
 <body>
 	<div id="explain-game">
-		<div class="title">看谁<span>算</span>的快</div>
+		<div class="title">你<span>算</span>老几</div>
 		<div class="introduce">
-			<div class="rule">游戏规则:</div>
-			<ul>
+			<!-- <div class="rule">游戏规则:</div> -->
+			<div class="main-rule">5&nbsp+&nbsp5&nbsp=&nbsp<span>?</span></div>
+			<!-- <ul>
 				<li>1.将计算结果填入输入框中，计时从你填对第一道题开始</li>
 				<li>2.你一开始有15秒钟的时间，每答对一道题，时间会增加一秒</li>
-				<li>3.当时间为0时，游戏结束~ 让我们开始吧！</li>
-			</ul>
+			</ul> -->
 		</div>
 		<div class="begin">
 			<button class="btn" id="play">开始游戏</button>
@@ -30,7 +30,7 @@
 	</div>
 	<div id="main-game">
 		<div class="time-zone">
-			<img src="img/time.png">
+			<img src="img/time-pul.png">
 			<span class="time" id="time"></span>
 			<span class="time-fix"> s left</span>
 		</div>
@@ -41,7 +41,7 @@
 		<div class="answer">
 			<!-- <input type="text" placeholder="填写答案" id="answer"> -->
 			<div class="input"></div>
-			<div class="reminder">There is your input</div>
+			<div class="reminder">Your answer...</div>
 		</div>
 		<div id="keyboard">
 			<div class="key" data-num="1">1</div>
