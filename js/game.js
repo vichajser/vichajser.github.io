@@ -241,7 +241,7 @@ var _lang = {
                     _this.randerUI();
                 });
 
-                dom.keyboard.on(eventName,'div', function(){
+                dom.keyboard.on('touch click','div', function(){
                     var value = parseInt(dom.input_val.text()),
                         that = this;
 
@@ -263,7 +263,7 @@ var _lang = {
                     
                 });
 
-                dom.re_start.on(eventName,function(){
+                dom.re_start.on('touch click',function(){
                     _this.right_answer = 0;
                     _this.lastScore = 0;
                     _this.timer = 0;
