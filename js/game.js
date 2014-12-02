@@ -402,7 +402,7 @@ var _lang = {
 
                 _this.lastGamePercent = level.text();
 
-                $('title').text(content.title + " , " ,content.share_txt1 + _this.lastScore + content.share_txt2 + _this.lastGamePercent + content.share_txt3 + content.share_text4);
+                $('title').text(content.title + " , " + content.share_txt1 + _this.lastScore + content.share_txt2 + _this.lastGamePercent + content.share_txt3 + content.share_text4);
 
             }
         };
