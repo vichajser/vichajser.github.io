@@ -8,7 +8,7 @@ body{
 
 #explain-game{
 	position:relative;
-	.title{
+	.title{ 
 		font-size: 2.0625rem;
 		color: #fff;
 		text-align:center;
@@ -87,7 +87,7 @@ body{
 	background-color: #fff;
 	@include border-radius(5px);
 	position: relative;
-	margin-top:38%;
+	margin-top:10%;
 	.math-container{
 		font-size: 3rem;
 		line-height: 100px;
@@ -98,13 +98,52 @@ body{
 	margin:0 auto;
 	width:65%;
 	position:relative;
-	margin-top:17%;
+	margin-top:20%;
 	input{
 		margin:0 auto;
 		width: 100%;
 		height:31px;
 		text-align: center;
 		font-size: 1.125rem;
+	}
+	.input{
+		margin:0 auto;
+		width: 100%;
+		height:36px;
+		background-color:#fff;
+		line-height: 36px;
+		text-align: center;
+		color: #E4399A;
+		font-size: 1.75rem;
+		overflow: hidden;
+	}
+	.reminder{
+		color:#7C7C7C;
+		margin:0 auto;
+		margin-top: -36px;
+		width: 100%;
+		height:36px;
+		line-height: 36px;
+		text-align: center;
+	}
+}
+
+#keyboard{
+	margin : 0 auto;
+	width : 80%;
+	overflow: hidden;
+	margin-top:15%;
+	.key{
+		width: 20%;
+		height: 40px;
+		text-align: center;
+		float:left;
+		margin-left: 10px;
+		border: 1px solid #eee;
+		cursor: pointer;
+		line-height: 40px;
+		color:#fff;
+		margin-top: 5%;
 	}
 }
 .share{
