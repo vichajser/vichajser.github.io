@@ -240,48 +240,17 @@ var _lang = {
                 $(window).resize(function(){
                     _this.randerUI();
                 });
+
                 dom.keyboard.on(eventName,'div', function(){
-                    var num = $(this).attr('data-num'),
-                        temp = dom.input.text(),
+                    var value = parseInt(dom.input_val.text()),
                         _this = this;
-                    
+
                     $(_this).css('background', 'rgba(255,255,255,0.1)');
-                    
+
                     setTimeout(function(){
                         $(_this).css('background', 'transparent');
                     },100);
 
-                    switch (num){
-                        case "Back" :
-                            var len = temp.length - 1;
-                            
-                            temp = temp.slice(0,len);
-                            dom.input.text(temp);
-                            break;
-                        case "-": 
-                        case "1":
-                        case "2":
-                        case "3":
-                        case "4":
-                        case "5":
-                        case "6":
-                        case "7":
-                        case "8":
-                        case "9":
-                        case "0":
-                            temp+=num;
-                            dom.input.text(temp);
-                            break;
-                    }
-                });
-
-                dom.keyboard.on(eventName,'div', function(){
-                    var value = parseInt(dom.input_val.text());
-
-                    if(dom.reminder.css("display") == "block"){
-                        dom.reminder.css("display","none");
-                    }
-                    
                     if(game.right_answer == value){
                         dom.input_val.css('border','1px solid #fff');
             
