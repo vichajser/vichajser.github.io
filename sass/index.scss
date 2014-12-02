@@ -1,12 +1,26 @@
 @import "compass/css3";
 
+$backColor : #01a185;
 
 body{
 	width: 100%;
-	background: url('../img/dark_wood.png') repeat;
+	background-color: $backColor;
 }
 
-#explain-game{
+@-webkit-keyframes start{
+	0%{font-size:0rem;}
+	100%{font-size: 2.5rem}
+}
+
+@-webkit-keyframes wen{
+	0%{-webkit-transform: rotate(0deg)}
+	25%{-webkit-transform: rotate(-45deg)}
+	50%{-webkit-transform: rotate(0deg)}
+	75%{-webkit-transform: rotate(45deg)}
+	100%{-webkit-transform: rotate(0deg)}
+}
+
+#explain-game{ 
 	position:relative;
 	.title{ 
 		font-size: 2.0625rem;
@@ -14,8 +28,8 @@ body{
 		text-align:center;
 		margin-top: 15%;
 		span{
-			-webkit-animation: start 1.5s 2;
-			animation: start 1.5s 2;
+			-webkit-animation: start 1s 1;
+			animation: start 1s 1;
 			color: #DB336C;
 			font-size: 2.5rem;
 			display:inline-block;
@@ -24,9 +38,19 @@ body{
 	.introduce{
 		padding: 0 5%;
 		position:relative;
-		margin-top: 15%;
+		margin-top: 25%;
 		div , ul {
 			color:#fff;
+		}
+		.main-rule{
+			text-align: center;
+			font-size: 3rem;
+			font-weight: 800;
+			span{
+				-webkit-animation: wen 0.8s linear 1s 2;
+			    animation: wen 0.8s linear 1s 2; 
+				color: #DB336C;
+			}
 		}
 		.rule{
 			font-size: 1.5rem;
@@ -40,11 +64,12 @@ body{
 	.begin{
 		position: relative;
 		width: 100%;
-		margin-top:20%;
+		margin-top:25%;
 		text-align:center;
 		.btn{
-			background-color:#D02D2D;
+			background-color:transparent;
 			border-color: transparent;
+			border: 1px solid #fff;
 			padding : 6px 12px;
 			font-size: 1rem;
 			font-weight: 400;
@@ -58,19 +83,12 @@ body{
 	}	
 }
 
-@-webkit-keyframes start{
-	0%{-webkit-transform: rotateX(0deg);transform: rotateX(0deg);}
-	25%{-webkit-transform: rotateX(90deg);transform: rotateX(90deg);}
-	50%{-webkit-transform: rotateX(180deg);transform: rotateX(180deg);}
-	75%{-webkit-transform: rotateX(270deg);transform: rotateX(270deg);}
-	100%{-webkit-transform: rotateX(360deg);transform: rotateX(360deg);}
-}
-
 #main-game{
 	margin:5px;
 }
 .time-zone{
 	position:relative;
+	padding-bottom: 2%;
 	.time{
 		font-size: 3rem;
 		color: #fff;
@@ -84,10 +102,11 @@ body{
 	margin: 0 auto;
 	width:70%;
 	height:100px;
-	background-color: #fff;
+	color:#fff;
+	border:2px solid #fff;
 	@include border-radius(5px);
 	position: relative;
-	margin-top:10%;
+	margin-top:7%;
 	.math-container{
 		font-size: 3rem;
 		line-height: 100px;
@@ -98,7 +117,7 @@ body{
 	margin:0 auto;
 	width:65%;
 	position:relative;
-	margin-top:20%;
+	margin-top:7%;
 	input{
 		margin:0 auto;
 		width: 100%;
@@ -110,7 +129,7 @@ body{
 		margin:0 auto;
 		width: 100%;
 		height:36px;
-		background-color:#fff;
+		border:1px solid #fff;
 		line-height: 36px;
 		text-align: center;
 		color: #E4399A;
@@ -118,7 +137,7 @@ body{
 		overflow: hidden;
 	}
 	.reminder{
-		color:#7C7C7C;
+		color:#fff;
 		margin:0 auto;
 		margin-top: -36px;
 		width: 100%;
@@ -130,18 +149,18 @@ body{
 
 #keyboard{
 	margin : 0 auto;
-	width : 80%;
+	max-width : 70%;
 	overflow: hidden;
-	margin-top:15%;
+	margin-top:11%;
 	.key{
-		width: 20%;
-		height: 40px;
+		width: 27%;
+		height: 47px;
 		text-align: center;
 		float:left;
 		margin-left: 10px;
 		border: 1px solid #eee;
 		cursor: pointer;
-		line-height: 40px;
+		line-height: 44px;
 		color:#fff;
 		margin-top: 5%;
 	}
