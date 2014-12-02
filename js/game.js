@@ -243,17 +243,17 @@ var _lang = {
 
                 dom.keyboard.on(eventName,'div', function(){
                     var value = parseInt(dom.input_val.text()),
-                        _this = this;
+                        that = this;
 
-                    $(_this).css('background', 'rgba(255,255,255,0.1)');
+                    $(that).css('background', 'rgba(255,255,255,0.1)');
 
                     setTimeout(function(){
-                        $(_this).css('background', 'transparent');
+                        $(that).css('background', 'transparent');
                     },100);
 
                     if(game.right_answer == value){
                         dom.input_val.css('border','1px solid #fff');
-            
+                        
                         _this.timer ++ ;
                         game.nextLv();
                     }else{
@@ -288,7 +288,7 @@ var _lang = {
 
                 _this.randerNum(result);
                 game.right_answer = result.rightAnswer;
-
+                
                 if(_this.timer == 1){
                     _this._tick = setInterval(this.tick, 1000);
                 }

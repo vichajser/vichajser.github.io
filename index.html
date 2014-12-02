@@ -81,17 +81,20 @@
     <script type="text/javascript">
 	(function(){
 
-		var input = $("#input"),
+		var input = $(".input"),
 		    keyboard = $("#keyboard");
 
-		keyboard.on('click','div',function(){
+		keyboard.on('touch click','div',function(){
 
 			var num = $(this).attr('data-num'),
-			    temp = input.text();
+			    temp = input.text(),
+			    reminder = $('.reminder');
+
+			if(reminder.css('display') === 'block'){reminder.css('display','none')};
 
 			switch (num){
 				case "Back" :
-				    var len = temp.length - 1
+				    var len = temp.length - 1;
 					temp = temp.slice(0,len);
 					input.text(temp);
 					break;
