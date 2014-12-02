@@ -196,7 +196,8 @@ var _lang = {
         math_container: $("#math-container"),
         result: $("#result"),
         score: $("#score"),
-        level: $("#level")
+        level: $("#level"),
+        reminder : $('.reminder')
     },
         mathfactory = new mathFactory(),
         game = {
@@ -240,8 +241,36 @@ var _lang = {
                 });
 
                 dom.keyboard.on(eventName,'div', function(){
-                    var value = parseInt(dom.input_val.text());
-            
+                    var value = parseInt(dom.input_val.text()),
+                        num = $(this).attr('data-num'),
+                        temp = input.text();
+                        
+                    if(dom.reminder.css("display") == "block"){
+                        dom.reminder.css("display","none");
+                    }
+
+                    switch (num){
+                        case "Back" :
+                            var len = temp.length - 1
+                            temp = temp.slice(0,len);
+                            input.text(temp);
+                            break;
+                        case "-":
+                        case "1":
+                        case "2":
+                        case "3":
+                        case "4":
+                        case "5":
+                        case "6":
+                        case "7":
+                        case "8":
+                        case "9":
+                        case "0":
+                            temp+=num;
+                            input.text(temp);
+                            break;
+                    }
+
                     if(game.right_answer == value){
                         dom.input_val.css('border','1px solid #fff');
             
