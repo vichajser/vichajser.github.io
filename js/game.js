@@ -242,7 +242,14 @@ var _lang = {
                 });
                 dom.keyboard.on(eventName,'div', function(){
                     var num = $(this).attr('data-num'),
-                        temp = dom.input.text();
+                        temp = dom.input.text(),
+                        _this = this;
+                    
+                    $(_this).css('background', 'rgba(255,255,255,0.1)');
+                    
+                    setTimeout(function(){
+                        $(_this).css('background', 'transparent');
+                    },100);
 
                     switch (num){
                         case "Back" :
@@ -274,7 +281,7 @@ var _lang = {
                     if(dom.reminder.css("display") == "block"){
                         dom.reminder.css("display","none");
                     }
-                    console.log('value' + dom.input_val.text());
+                    
                     if(game.right_answer == value){
                         dom.input_val.css('border','1px solid #fff');
             
