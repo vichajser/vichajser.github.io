@@ -240,23 +240,18 @@ var _lang = {
                 $(window).resize(function(){
                     _this.randerUI();
                 });
-
                 dom.keyboard.on(eventName,'div', function(){
-                    var value = parseInt(dom.input_val.text()),
-                        num = $(this).attr('data-num'),
+                    var num = $(this).attr('data-num'),
                         temp = dom.input.text();
-
-                    if(dom.reminder.css("display") == "block"){
-                        dom.reminder.css("display","none");
-                    }
 
                     switch (num){
                         case "Back" :
-                            var len = temp.length - 1
+                            var len = temp.length - 1;
+                            
                             temp = temp.slice(0,len);
                             dom.input.text(temp);
                             break;
-                        case "-":
+                        case "-": 
                         case "1":
                         case "2":
                         case "3":
@@ -271,7 +266,15 @@ var _lang = {
                             dom.input.text(temp);
                             break;
                     }
+                });
 
+                dom.keyboard.on(eventName,'div', function(){
+                    var value = parseInt(dom.input_val.text());
+
+                    if(dom.reminder.css("display") == "block"){
+                        dom.reminder.css("display","none");
+                    }
+                    console.log('value' + dom.input_val.text());
                     if(game.right_answer == value){
                         dom.input_val.css('border','1px solid #fff');
             
@@ -280,6 +283,8 @@ var _lang = {
                     }else{
                         dom.input_val.css('border','1px solid red');
                     }
+
+                    
                 });
 
                 dom.re_start.on(eventName,function(){
@@ -335,8 +340,10 @@ var _lang = {
                 
                 _this.time = _config["initTime"];
                 dom.time.css('color','#fff').text(parseInt(_this.time));
-
-                $('title').text('math game')
+                dom.input_val.css('border','1px solid #fff');
+                
+                $('title').text('math game');
+                dom.input_val.text("");
 
             },
             nextLv: function(){
@@ -348,9 +355,8 @@ var _lang = {
                 }else{
                     dom.time.text(parseInt(this.time));
                 }
-                
-                dom.input_val.text("");
 
+                dom.input_val.text("");
                 this.start();
             },
             gameOver: function(){
