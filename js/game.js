@@ -234,14 +234,14 @@ var _lang = {
 
             //事件初始化
             initEvent: function(){
-                var eventName = "ontouchstart" in document.documentElement ? "touch" : "click",
+                var eventName = "ontouchstart" in document.documentElement ? "touchstart" : "click",
                     _this = this;
 
                 $(window).resize(function(){
                     _this.randerUI();
                 });
 
-                dom.keyboard.on('touch click','div', function(){
+                dom.keyboard.on(eventName,'div', function(){
                     var value = parseInt(dom.input_val.text()),
                         that = this;
 
@@ -263,7 +263,7 @@ var _lang = {
                     
                 });
 
-                dom.re_start.on('touch click',function(){
+                dom.re_start.on(eventName ,function(){
                     _this.right_answer = 0;
                     _this.lastScore = 0;
                     _this.timer = 0;
