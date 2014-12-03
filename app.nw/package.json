@@ -1,0 +1,40 @@
+{
+    "main":"index.html",
+    //"main": "http://vichajser.github.io/", //remote mode
+    "name": "mathgame",
+    "description": "A simple math game app",
+    "version": "0.1.0",
+    "keywords": ["demo", "node-webkit"],
+    "window": {
+        "title": "Math Game",
+        "icon": "nw.icns",
+        "toolbar": false,
+        "frame": true,
+        "width": 320,
+        "height": 568,
+        "position": "mouse",
+        "min_width": 320,
+        "min_height": 568,
+        "max_width": 320,
+        "max_height": 568
+    },
+    "webkit": {
+        "plugin": true
+    },
+    "node-remote":true,
+    "maintainers": [{
+        "name": "Vicha Chou",
+        "email": "import.dream.js@gmail.com",
+        "web": "https://github.com/vichajser"
+    },
+    {
+        "name": "Frank Zhang",
+        "email": "frankxin93@hotmail.com",
+        "web": "http://www.frankxin.com"
+    },
+    {
+        "name": "Leoc Xu",
+        "email": "paincompiler@gmail.com",
+        "web": "http://blog.paincompiler.us"
+    }]
+}
