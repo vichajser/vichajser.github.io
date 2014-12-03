@@ -198,7 +198,8 @@ var _lang = {
         score: $("#score"),
         level: $("#level"),
         input: $(".input"),
-        reminder : $('.reminder')
+        reminder : $('.reminder'),
+        share: $("#share")
     },
         mathfactory = new mathFactory(),
         game = {
@@ -389,6 +390,18 @@ var _lang = {
                 dom.input_val.text("");
                 this.start();
             },
+
+            //检查是否是微信内置的浏览器
+            isWechat: function(){
+                var ua = navigator.userAgent.toLowerCase();
+
+                if(ua.match(/MicroMessenger/i) == 'microMessenger'){
+                    return true;
+                }else{
+                    return false;
+                }
+            },
+
             gameOver: function(){
                 var _this = this,
                     num = _this.lastScore/5,
@@ -397,6 +410,11 @@ var _lang = {
 
                 _this.el.hide();
                 dom.result.show();
+                if(_this.isWechat()){
+                    dom.share.show();
+                }else{
+                    dom.share.hide();
+                }
                 clearInterval(_this._tick);
 
                 dom.score.text(_this.lastScore);

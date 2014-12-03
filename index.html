@@ -10,7 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="css/index.css">
 	<link rel = "Shortcut Icon" href="img/math.ico">
 	<style type="text/css">
-	#main-game , #result{
+	#main-game , #result, #share{
 		display: none;
 	}
 	</style>
@@ -62,7 +62,7 @@
 	</div>
 	<div id="result">
 		<div class="share">
-			<img src="img/bg_share.png" alt="">
+			<img src="img/bg_share.png" alt="share_img" id="share">
 		</div>
 		<div class="score">
 			<div class="fen">
@@ -84,9 +84,10 @@
 	(function(){
 
 		var input = $(".input"),
-		    keyboard = $("#keyboard");
-
-		keyboard.on('click','div',function(){
+		    keyboard = $("#keyboard"),
+		    eventName = 'ontouchstart' in document.documentElement ? 'touchstart' : 'click';
+		Game.preDbClick();
+		keyboard.on(eventName,'div',function(){
 
 			var num = $(this).attr('data-num'),
 			    temp = input.text(),
