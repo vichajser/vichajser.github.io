@@ -86,7 +86,7 @@
 		var input = $(".input"),
 		    keyboard = $("#keyboard");
 
-		keyboard.on('touch click','div',function(){
+		keyboard.on('touchstart click','div',function(){
 
 			var num = $(this).attr('data-num'),
 			    temp = input.text(),
