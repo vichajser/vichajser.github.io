@@ -15,7 +15,7 @@
 	}
 	</style>
 </head>
-<body>
+<body onselectstart="return false">
 	<div id="explain-game">
 		<div class="title">你<span>算</span>老几</div>
 		<div class="introduce">
@@ -86,7 +86,7 @@
 		var input = $(".input"),
 		    keyboard = $("#keyboard");
 
-		keyboard.on('touchstart click','div',function(){
+		keyboard.on('click','div',function(){
 
 			var num = $(this).attr('data-num'),
 			    temp = input.text(),
