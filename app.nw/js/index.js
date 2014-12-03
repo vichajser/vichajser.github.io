@@ -42,6 +42,8 @@
                 var clickEvent = "ontouchstart" in document.documentElement ? "touchstart" : "click",
                     mathApp = this;
 
+                Game.preDbClick();
+                
                 query.play.on(clickEvent, function(){
                     // var type = $(this).data('type')
                     query.loading.hide();

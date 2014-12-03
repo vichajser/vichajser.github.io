@@ -206,6 +206,7 @@ var _lang = {
             timer: 0,
             _tick: null,
             right_answer: 0, //正确答案
+            touch: {},
             init: function(el, parent){
                 this.api = API;
                 this.config = _config;
@@ -232,6 +233,57 @@ var _lang = {
                 this.el.show();
             },
 
+            //preventDbClick
+            preDbClick: function(e){
+                var type = 'click', //要触发的事件类型
+                    bubbles = true, //事件是否可以冒泡
+                    cancelable = true, // 事件是否可以阻止浏览器默认事件
+                    view = document.defaultView, //与事件关联的视图
+
+                    detail = 0,
+                    screenX = 0,
+                    screenY = 0,
+                    clientX = 0,
+                    clientY = 0,
+                    ctrlKey = false, //是否按下ctrl
+                    altKey = false, //是否按下alt
+                    shiftKey = false, 
+                    metaKey = false,
+                    button = 0, //表示按下哪一个鼠标键
+                    relatedTarget = 0; //模拟mousemove或者out时候用到，与事件相关的对象
+
+                $("document").on("click", function(e){
+                    if(e.myclick = true){
+                        return true;
+                    }
+
+                    if(e.stopImmediatePropagation){
+                        e.stopImmediatePropagation();
+                    }else{
+                        e.propagationStopped = true;
+                    }
+
+                    e.stopPropagation();
+                    e.preventDefault();
+
+                    return true;
+                });
+                $("document").on('touchstart', function(e){
+                    touch.el = e.target;
+                });
+
+                $("document").on('touchend', function(e){
+                    var  event = document.createEvent('Events');
+                    event.initEvent('click', true, true, window, 1, e.changedTouches[0].screenX,e.changedTouches[0].screenY,e.changedTouches[0].clientX,e.changedTouches[0].clientY,false, false, false, false, 0, null);
+                    event.myclick = true;
+                    touch.el && touch.el.dispathchEvent(event);
+
+                    e.preventDefault();
+                    return true;
+                });
+
+            },
+
             //事件初始化
             initEvent: function(){
                 var eventName = "ontouchstart" in document.documentElement ? "touchstart" : "click",
@@ -240,6 +292,8 @@ var _lang = {
                 $(window).resize(function(){
                     _this.randerUI();
                 });
+
+                _this.preDbClick();
 
                 dom.keyboard.on(eventName,'div', function(){
                     var value = parseInt(dom.input_val.text()),
