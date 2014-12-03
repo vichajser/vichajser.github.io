@@ -4,7 +4,7 @@
     "name": "mathgame",
     "description": "A simple math game app",
     "version": "0.1.0",
-    "keywords": ["demo", "node-webkit"],
+    "keywords": ["math", "node-webkit", "game"],
     "window": {
         "title": "Math Game",
         "icon": "nw.icns",
