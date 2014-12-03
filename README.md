@@ -1,4 +1,4 @@
 mathGame
 ========
 
-a simply game of math for web app
+a simple game of math for web app
