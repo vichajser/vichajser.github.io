@@ -43,12 +43,22 @@
                     mathApp = this;
 
                 Game.preDbClick();
-                
+
                 query.play.on(clickEvent, function(){
                     // var type = $(this).data('type')
                     query.loading.hide();
                     Game.init(query.index, mathApp);
                 });
+
+                $(document).on('keydown', function(e){
+                    var e = e || event,
+                        currKey = e.keyCode || e.which || e.charCode;
+
+                    if(currKey == 13){
+                        query.loading.hide();
+                        Game.init(query.index, mathApp);
+                    }
+                })
 
                 this.weixinEvent();
             },
