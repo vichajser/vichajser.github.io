@@ -112,7 +112,7 @@ var _lang = {
                         //5--15
                         a = _this.randomNum(_config.multiMax[1], _config.multiMax[3]);
                         b = _this.randomNum(_config.multiMax[1], _config.multiMax[3]);
-                    }else if(timer >= 16 && timer < 20){
+                    }else if(timer >= 15 && timer < 20){
                         //5--20
                         a = _this.randomNum(_config.multiMax[1], _config.multiMax[4]);
                         b = _this.randomNum(_config.multiMax[1], _config.multiMax[4]);
