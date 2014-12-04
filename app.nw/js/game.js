@@ -112,7 +112,7 @@ var _lang = {
                         //5--15
                         a = _this.randomNum(_config.multiMax[1], _config.multiMax[3]);
                         b = _this.randomNum(_config.multiMax[1], _config.multiMax[3]);
-                    }else if(timer >= 16 && timer < 20){
+                    }else if(timer >= 15 && timer < 20){
                         //5--20
                         a = _this.randomNum(_config.multiMax[1], _config.multiMax[4]);
                         b = _this.randomNum(_config.multiMax[1], _config.multiMax[4]);
@@ -198,7 +198,8 @@ var _lang = {
         score: $("#score"),
         level: $("#level"),
         input: $(".input"),
-        reminder : $('.reminder')
+        reminder : $('.reminder'),
+        share: $("#share")
     },
         mathfactory = new mathFactory(),
         game = {
@@ -299,12 +300,6 @@ var _lang = {
                     var value = parseInt(dom.input_val.text()),
                         that = this;
 
-                    // $(that).css('background', 'rgba(255,255,255,0.1)');
-
-                    // setTimeout(function(){
-                    //     $(that).css('background', 'transparent');
-                    // },100);
-
                     if(game.right_answer == value){
                         dom.input_val.css('border','1px solid #fff');
                         
@@ -326,6 +321,68 @@ var _lang = {
                     _this.reset();
                     _this.randerUI();
                     _this.start();
+                });
+
+                //监听键盘事件
+                $(document).on('keydown', function(e){
+                    var e = e || event,
+                        currKey = e.keyCode || e.which || e.charCode,
+                        temp = dom.input_val.text(),
+                        len = temp.length-1,
+                        value = 0;
+
+                    switch(currKey){
+                        case 49 || 97 : 
+                            temp += "1";
+                            break;
+                        case 50 || 98 : 
+                            temp += "2";
+                            break;
+                        case 51 || 99 : 
+                            temp += "3";
+                            break;
+                        case 52 || 100 : 
+                            temp += "4";
+                            break;
+                        case 53 || 101 : 
+                            temp += "5";
+                            break;
+                        case 54 || 102 : 
+                            temp += "6";
+                            break;
+                        case 55 || 103 : 
+                            temp += "7";
+                            break;
+                        case 56 || 104 : 
+                            temp += "8";
+                            break;
+                        case 57 || 105 : 
+                            temp += "9";
+                            break;
+                        case 189 || 109 : 
+                            temp += "-";
+                            break;
+                        case 48 || 96 : 
+                            temp += "0";
+                            break;
+                        case 8 || 46 : 
+                            temp = temp.slice(0, len);
+                            break;
+                    }
+
+                    dom.input_val.text(temp);
+                    value = parseInt(temp);
+
+                    if(dom.reminder.css('display') === 'block'){dom.reminder.css('display','none')};
+
+                    if(game.right_answer == value){
+                        dom.input_val.css('border','1px solid #fff');
+                        
+                        _this.timer ++ ;
+                        game.nextLv();
+                    }else{
+                        dom.input_val.css('border','1px solid red');
+                    }
                 });
 
             },
@@ -389,6 +446,18 @@ var _lang = {
                 dom.input_val.text("");
                 this.start();
             },
+
+            //检查是否是微信内置的浏览器
+            isWechat: function(){
+                var ua = navigator.userAgent.toLowerCase();
+
+                if(ua.match(/MicroMessenger/i) == 'microMessenger'){
+                    return true;
+                }else{
+                    return false;
+                }
+            },
+
             gameOver: function(){
                 var _this = this,
                     num = _this.lastScore/5,
@@ -397,6 +466,11 @@ var _lang = {
 
                 _this.el.hide();
                 dom.result.show();
+                if(_this.isWechat()){
+                    dom.share.show();
+                }else{
+                    dom.share.hide();
+                }
                 clearInterval(_this._tick);
 
                 dom.score.text(_this.lastScore);

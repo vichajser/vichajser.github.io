@@ -1,6 +1,6 @@
 {
-    "main":"index.html",
-    //"main": "http://vichajser.github.io/", //remote mode
+    //"main":"index.html",
+    "main": "http://vichajser.github.io/", //remote mode
     "name": "mathgame",
     "description": "A simple math game app",
     "version": "0.1.0",

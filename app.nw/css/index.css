@@ -227,6 +227,7 @@ body {
 /* line 168, ../sass/index.scss */
 .share {
   position: relative;
+  height:123px;
 }
 /* line 170, ../sass/index.scss */
 .share img {
