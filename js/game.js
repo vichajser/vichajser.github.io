@@ -86,6 +86,7 @@ var _lang = {
         
         if(num == 0){
             operatorFactory[2 + parseInt(Math.random()*2)](a, b);
+        }
         }else{
             operatorFactory[parseInt(Math.random()*2)](a, b);
         }
